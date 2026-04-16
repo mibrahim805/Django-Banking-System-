@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block extra_css %}
+<style>
+    .profile-card {
+        max-width: 460px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .profile-card h2 {
+        text-align: center;
+        margin-bottom: 1.25rem;
+        font-weight: 800;
+        color: #2b2d42;
+    }
+
+    .info p {
+        margin: 0.6rem 0;
+    }
+
+    .label {
+        font-weight: 700;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="surface-card profile-card">
+    <h2>User Profile</h2>
+
+    <div class="info">
+        <p><span class="label">Username:</span> {{ user.username }}</p>
+        <p><span class="label">Email:</span> {{ user.email }}</p>
+        <p><span class="label">First Name:</span> {{ user.first_name }}</p>
+        <p><span class="label">Last Name:</span> {{ user.last_name }}</p>
+    </div>
+</div>
+
+{% endblock %}

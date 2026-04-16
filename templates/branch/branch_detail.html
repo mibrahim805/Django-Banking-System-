@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Branch Details{% endblock %}
+
+{% block extra_css %}
+<style>
+    .branch-detail-card {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .branch-detail-card h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+        color: #2b2d42;
+    }
+
+    .info {
+        padding: 1rem 1.25rem;
+        border: 1px solid rgba(102, 126, 234, 0.15);
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .info p {
+        margin: 0.6rem 0;
+        font-size: 15px;
+    }
+
+    .label {
+        font-weight: 700;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="surface-card branch-detail-card">
+    <h2>Branch Details</h2>
+    <div class="info">
+        <p><span class="label">ID:</span> {{ branch.id }}</p>
+        <p><span class="label">Name:</span> {{ branch.name }}</p>
+        <p><span class="label">Transit Number:</span> {{ branch.transit_number }}</p>
+        <p><span class="label">Address:</span> {{ branch.address }}</p>
+        <p><span class="label">Email:</span> {{ branch.email }}</p>
+        <p><span class="label">Capacity:</span> {{ branch.capacity }}</p>
+        <p><span class="label">Last Modified:</span> {{ branch.last_modified }}</p>
+    </div>
+</div>
+{% endblock %}

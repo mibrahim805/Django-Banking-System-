@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Create Bank{% endblock %}
+
+{% block extra_css %}
+<style>
+    .bank-form-card {
+        max-width: 560px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .bank-form-card .header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .bank-form-card .header h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #2b2d42;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .error {
+        color: #dc3545;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="surface-card bank-form-card">
+    <div class="header">
+        <h2>Create Bank</h2>
+    </div>
+
+    <form method="POST" novalidate>
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label class="form-label">Name</label>
+            {{ form.name }}
+            {% if form.name.errors %}
+                <div class="error">{{ form.name.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Swift Code</label>
+            {{ form.swift_code }}
+            {% if form.swift_code.errors %}
+                <div class="error">{{ form.swift_code.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Institution Number</label>
+            {{ form.institution_number }}
+            {% if form.institution_number.errors %}
+                <div class="error">{{ form.institution_number.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Description</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+                <div class="error">{{ form.description.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-brand submit-btn">Create Bank</button>
+    </form>
+</div>
+{% endblock %}
